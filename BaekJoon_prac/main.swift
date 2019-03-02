@@ -161,7 +161,7 @@ print(sum)*/
 
 
 //11721번
-let inputString = readLine()!
+/*let inputString = readLine()!
 
 var arr_String = Array<Character>()
 var result_array = Array<String>()
@@ -185,7 +185,98 @@ if(arr_String.count >= 0){
         }
     }
     print(result)
+}*/
+
+
+//9498번
+
+/*let input_Score = readLine()!.components(separatedBy: " ").map { (value: String) -> Int in
+    return Int(value)!
 }
+
+var check_rank = input_Score[0]
+
+switch check_rank{
+case 90...100:
+    print("A")
+    break;
+case 80...89:
+    print("B")
+    break;
+case 70...79:
+    print("C")
+    break;
+case 60...69:
+    print("D")
+    break;
+default:
+    print("F")
+    break;
+}*/
+
+//10817번
+
+/*let input_Score = readLine()!.components(separatedBy: " ").map { (value : String) -> Int in
+    return Int(value)!
+}
+
+let sorted_Score = input_Score.sorted()
+
+print(sorted_Score[1])*/
+
+
+//10871번
+
+/*let input_Num1 = readLine()!.components(separatedBy: " ").map { (value) -> Int in
+    return Int(value)!
+}
+let input_Num2 = readLine()!.components(separatedBy: " ").map { (value) -> Int in
+    return Int(value)!
+}
+
+var result = ""
+let data_Length = input_Num1[0]
+let data_Standard = input_Num1[1]
+
+var result_array = Array<Int>()
+
+for k in 0...input_Num2.count - 1{
+    if(input_Num2[k] < data_Standard){
+        result_array.append(input_Num2[k])
+    }
+}
+
+for i in 0...result_array.count - 1{
+    result = result + String(result_array[i]) + " "
+}
+print(result)*/
+
+//다른사람풀이
+/*let input = readLine()!.split(separator: " ").map { Int($0)! }
+let array = readLine()!.split(separator: " ")
+    .map { Int($0)! }
+    .filter { $0 < input[1] }
+
+array.forEach({print($0, terminator: " ")})
+
+let array = readLine()!.components(separatedBy: " ").map { (value) -> Int in
+    return Int(value)!
+    }.filter { (value) -> Bool in
+        return (value < input[1])
+}
+
+array.forEach { (array) in
+    print(array, terminator:" ")
+}*/
+
+
+
+
+
+
+
+
+
 
 
 
