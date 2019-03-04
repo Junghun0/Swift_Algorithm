@@ -269,6 +269,33 @@ array.forEach { (array) in
     print(array, terminator:" ")
 }*/
 
+//프로그래머스 제일 작은 수 제거하기
+
+/*func solution2(_ arr:[Int]) -> [Int] {
+    let result = [-1]
+    if(arr.count > 1){
+        //var sortedArr = arr.sorted()
+        var sortedArr = arr.sorted { (value1, value2) -> Bool in
+            return value1<value2
+        }
+        sortedArr.remove(at: 0)
+        return sortedArr
+    }else{
+        return result
+    }
+}
+let testcase = [2]
+let testcase2 = [1,2,3,4,5]*/
+
+
+//문자열 빈칸제거 단어수 리턴
+let input_str = readLine()!
+let trimedStr = input_str.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+let index = trimedStr.components(separatedBy: " ")
+print(index.count)
+
+
+
 
 
 
