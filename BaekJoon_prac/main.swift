@@ -289,10 +289,59 @@ let testcase2 = [1,2,3,4,5]*/
 
 
 //문자열 빈칸제거 단어수 리턴
-let input_str = readLine()!
+/*let input_str = readLine()!
 let trimedStr = input_str.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 let index = trimedStr.components(separatedBy: " ")
-print(index.count)
+print(index.count)*/
+
+//프로그래머스 가운데 글자 가져오기
+
+/*
+func solution(_ s:String) -> String {
+    if(s.count % 2 == 0){
+        let center = s.count/2
+        let center2 = s.count/2 - 1
+        return String(s[s.index(s.startIndex, offsetBy: center2)]) + String(s[s.index(s.startIndex, offsetBy: center)])
+    }else{
+        let index = s.count/2
+        print(s[s.index(s.startIndex, offsetBy: index)])
+        return String(s[s.index(s.startIndex, offsetBy: index)])
+    }
+}*/
+
+//프로그래머스 약수의 합
+
+/*func solution(_ n:Int) -> Int {
+    var results : Array<Int> = Array()
+    var sum : Int = 0
+    if(n != 0){
+    for k in 1...n{
+        if(n%k == 0){
+            print(k)
+            results.append(k)
+        }
+    }
+    for nums in results{
+        sum += nums
+    }
+        return sum
+    }else{
+        return 0
+    }
+}*/
+
+//약수의 합
+func solution(_ n:Int) -> Int {
+    guard n != 0 else {
+        return 0
+    }
+    return Array(1...n).filter{n % $0 == 0}.reduce(0, +)
+}
+
+
+
+
+
 
 
 
