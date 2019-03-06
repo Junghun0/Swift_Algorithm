@@ -338,6 +338,8 @@ func solution(_ s:String) -> String {
     return Array(1...n).filter{n % $0 == 0}.reduce(0, +)
 }*/
 
+//클로져 연습
+/*
 func solution(_ n:Int) -> Int {
     
     guard n != 0 else {
@@ -365,7 +367,108 @@ func solution(_ n:Int) -> Int {
     //return Array(1...n).filter{n % $0 == 0}.reduce(0, +)
     return 123456
 }
-solution(6)
+solution(6)*/
+
+
+
+//프로그래머스
+
+/*func solution(_ seoul:[String]) -> String {
+    var index : Array<Int> = Array()
+    var filteredArray = seoul.filter { (value: String) -> Bool in
+        if(value == "Kim"){
+            index.append(seoul.index(of: "Kim")!)
+            return value == "Kim"
+        }else{
+            return false
+        }
+    }
+    
+    let resultindex = index[0]
+    return "김서방은 \(resultindex)에 있다"
+}
+
+//다른풀이
+func solution(_ seoul:[String]) -> String {
+    return "김서방은 \(seoul.index(of: "Kim")!)에 있다"
+}*/
+
+//프로그래머스
+/*func solution(_ arr:[Int], _ divisor:Int) -> [Int] {
+    var resultArr : Array<Int> = Array()
+    var counter : Int = 0
+    if(divisor == 1){
+        for k in arr{
+            resultArr.append(k)
+        }
+        resultArr.sort()
+        return resultArr
+    }
+    for k in arr{
+        if(k%divisor == 0){
+            counter += 1
+            resultArr.append(k)
+            resultArr.sort()
+        }
+    }
+    if(counter == 0){
+        return [-1]
+    }
+    return resultArr
+}
+
+func solution(_ arr:[Int], _ divisor:Int) -> [Int] {
+    let array = arr.sorted().filter{ $0 % divisor == 0 }
+    return  array == [] ? [-1] : array
+}*/
+
+
+
+//프로그래머스
+/*func solution(_ a:Int, _ b:Int) -> Int64 {
+    if(a == b){
+        return Int64(a)
+    }
+    var first = a
+    var second = b
+    
+    if(a > b){
+        let tmp = first
+        first = second
+        second = tmp
+    }
+    
+    let data = Array(first...second).reduce(0) { (s1 : Int, s2 : Int) -> Int in
+        return s1 + s2
+    }
+    
+    return Int64(data)
+}
+
+//다른사람풀이
+func solution(_ a:Int, _ b:Int) -> Int64 {
+    return Array((a < b) ? a...b : b...a).reduce(0, +)
+}*/
+
+
+//프로그래머스
+
+func solution(_ array:[Int], _ commands:[[Int]]) -> [Int] {
+    
+    var answer:[Int] = []
+    for i in commands {
+        var newArray = Array(array[i[0]-1...i[1]-1])
+        newArray.sort()
+        answer.append(newArray[i[2]-1])
+    }
+    return answer
+}
+
+
+
+
+print(solution([1,5,2,6,3,7,4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]]))
+//print(solution([1,5,2,6,3,7,4], [[2, 5, 3]]))
 
 
 
