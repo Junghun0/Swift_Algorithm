@@ -331,12 +331,42 @@ func solution(_ s:String) -> String {
 }*/
 
 //약수의 합
-func solution(_ n:Int) -> Int {
+/*func solution(_ n:Int) -> Int {
     guard n != 0 else {
         return 0
     }
     return Array(1...n).filter{n % $0 == 0}.reduce(0, +)
+}*/
+
+func solution(_ n:Int) -> Int {
+    
+    guard n != 0 else {
+        return 0
+    }
+    
+//    Array(1...n).filter { (value: Int) -> Bool in
+//        return value % 2 == 0
+//    }
+    
+    let mappedarray = Array(1...n).map { (value: Int) -> Bool in
+        return value % 2 == 0
+        }.filter { (value: Bool) -> Bool in
+            return value
+    }
+    
+    let reducedArray = Array(1...n).reduce(0) { (s1: Int, s2: Int) -> Int in
+        return s1+s2
+        //n->5.  {0+1},{1+2},{3+3},{6+4},{10+5} => 15
+    }
+    
+    print(mappedarray)
+    print(reducedArray)
+    
+    //return Array(1...n).filter{n % $0 == 0}.reduce(0, +)
+    return 123456
 }
+solution(6)
+
 
 
 
