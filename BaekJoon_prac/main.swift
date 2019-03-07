@@ -453,7 +453,7 @@ func solution(_ a:Int, _ b:Int) -> Int64 {
 
 //프로그래머스
 
-func solution(_ array:[Int], _ commands:[[Int]]) -> [Int] {
+/*func solution(_ array:[Int], _ commands:[[Int]]) -> [Int] {
     
     var answer:[Int] = []
     for i in commands {
@@ -464,11 +464,82 @@ func solution(_ array:[Int], _ commands:[[Int]]) -> [Int] {
     return answer
 }
 
-
-
-
 print(solution([1,5,2,6,3,7,4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]]))
-//print(solution([1,5,2,6,3,7,4], [[2, 5, 3]]))
+//print(solution([1,5,2,6,3,7,4], [[2, 5, 3]]))*/
+
+/*func solution(_ n:Int) -> Int {
+    var array = [Int]()
+    for a in 2...n{
+        array.append(a)
+    }
+    return array.compactMap{ Int($0)}.filter{isPrime($0)}.count
+}
+
+func isPrime(_ input: Int) -> Bool { if input == 1 { return false }
+    for index in 2..<input {
+        if input % index == 0 {
+            return false
+        }
+    }
+    return true
+}*/
+
+
+//oxox
+func getAnswer(_ data: [String])->Int{
+    var sum: Int = 0
+    var result = Array<Int>()
+    var result2:Int = 0
+    for k in 0...data.count - 1 {
+        var cor: Int = 1
+        var tmp: Int = 0
+        sum = 0
+        if(data[k].contains("O")){
+            let Ocount = data[k].count
+            for _ in 1...Ocount{
+                tmp = cor
+                cor += 1
+                sum += (cor - 1)
+            }
+            result.append(sum)
+        }else{
+            tmp = 0
+            cor = 1
+            continue
+        }
+       result2 = result.reduce(0) { (v : Int, v2 : Int) -> Int in
+            return v + v2
+        }
+    }
+    return result2
+}
+
+let input_num = Int(readLine()!)!
+var data = [String]()
+var saveresult = [Int]()
+for _ in 1...input_num{
+    let inputanswer = readLine()!.components(separatedBy: "X").map { (value: String) -> String in
+        return value
+    }
+    saveresult.append(getAnswer(inputanswer))
+}
+
+for k in saveresult{
+    print(k)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
