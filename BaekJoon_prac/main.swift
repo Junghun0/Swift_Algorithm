@@ -652,10 +652,8 @@ func merge(_ leftPile: [Int], _ rightPile: [Int]) -> [Int] {
     return orderedPile
  }*/
 
-let input_data_num = Int(readLine()!)!
-var data_arr = [Int]()
-
-func merge(left:[Int],right:[Int]) -> [Int] {
+//머지소트
+/*func merge(left:[Int],right:[Int]) -> [Int] {
     var mergedList = [Int]()
     var left = left
     var right = right
@@ -680,59 +678,34 @@ func mergeSort(list:[Int]) -> [Int] {
     let rightList = Array(list[list.count/2..<list.count])
     
     return merge(left: mergeSort(list:leftList), right: mergeSort(list:rightList))
-}
+}*/
+
+
+
+//정렬하기
+/*let input_data_num = Int(readLine()!)!
+var data_arr = [Int]()
 
 for _ in 1...input_data_num{
-    var input = readLine()!.components(separatedBy: "\n").map { (value: String) -> Int in
-        return Int(value)!
-    }
-    data_arr.append(input[0])
+    let input2 = Int(readLine()!)!
+    data_arr.append(input2)
 }
 
+for answer in data_arr.sorted(){
+    print(answer)
+}*/
 
-print(mergeSort(list: data_arr))
+//정렬하기2
+/*let input_num = readLine()!
 
+var arr_String = Array<Character>()
 
+for index in input_num.characters.indices{
+    arr_String.append(input_num[index])
+}
+print(String(arr_String.sorted().reversed()))*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* 다른사람 소스
+ print(String(readLine()!.sorted(by:>)))
+ */
 
