@@ -554,7 +554,7 @@ for k in saveresult{
  }
  */
 
-var input_nums_Count = Int(readLine()!)!
+/*var input_nums_Count = Int(readLine()!)!
 var sorted = [Int]()
 var inputs = [Int]()
 for _ in 0...input_nums_Count - 1{
@@ -566,7 +566,7 @@ for _ in 0...input_nums_Count - 1{
 sorted.sort()
 for result in sorted{
     print(result)
-}
+}*/
 
 /*다른풀이
  var a=[Int]();
@@ -578,6 +578,126 @@ for result in sorted{
     print(i)
  }
  */
+
+/*let input_String = readLine()!.components(separatedBy: "").map { (value: String) -> String in
+    return value
+}
+print(input_String[0].uppercased())
+let check_str = input_String[0].uppercased()
+var str_split = [Character]()
+var count : Int = 1
+var interval : Int = 1
+
+for index in check_str.characters.indices{
+    str_split.append(check_str[index])
+}
+
+for k in 1...str_split.count - 1{
+    if(str_split[k-1] == str_split[k]){
+        print(str_split[k])
+    }
+}*/
+
+
+/*func mergeSort(_ array: [Int]) -> [Int]{
+    
+    guard array.count > 1 else{ return array }
+    
+    let middleIndex = data_arr.count / 2
+    
+    let leftArray = Array(array[0..<middleIndex])
+    let rightArray = Array(array[middleIndex..<array.count])
+    
+    return merge(leftArray, rightArray)
+}
+
+func merge(_ leftPile: [Int], _ rightPile: [Int]) -> [Int] {
+    // 1
+    var leftIndex = 0
+    var rightIndex = 0
+    
+    // 2
+    var orderedPile = [Int]()
+    orderedPile.reserveCapacity(leftPile.count + rightPile.count)
+    
+    // 3
+    while leftIndex < leftPile.count && rightIndex < rightPile.count {
+        if leftPile[leftIndex] < rightPile[rightIndex] {
+            orderedPile.append(leftPile[leftIndex])
+            leftIndex += 1
+        } else if leftPile[leftIndex] > rightPile[rightIndex] {
+            orderedPile.append(rightPile[rightIndex])
+            rightIndex += 1
+        } else {
+            orderedPile.append(leftPile[leftIndex])
+            leftIndex += 1
+            orderedPile.append(rightPile[rightIndex])
+            rightIndex += 1
+        }
+    }
+    print("orderedPile\(orderedPile)")
+    
+    // 4
+    while leftIndex < leftPile.count {
+        orderedPile.append(leftPile[leftIndex])
+        leftIndex += 1
+    }
+    
+    while rightIndex < rightPile.count {
+        orderedPile.append(rightPile[rightIndex])
+        rightIndex += 1
+    }
+    
+    print(orderedPile)
+    return orderedPile
+ }*/
+
+let input_data_num = Int(readLine()!)!
+var data_arr = [Int]()
+
+func merge(left:[Int],right:[Int]) -> [Int] {
+    var mergedList = [Int]()
+    var left = left
+    var right = right
+    
+    while left.count > 0 && right.count > 0 {
+        if left.first! < right.first! {
+            mergedList.append(left.removeFirst())
+        } else {
+            mergedList.append(right.removeFirst())
+        }
+    }
+    
+    return mergedList + left + right
+}
+
+func mergeSort(list:[Int]) -> [Int] {
+    guard list.count > 1 else {
+        return list
+    }
+    
+    let leftList = Array(list[0..<list.count/2])
+    let rightList = Array(list[list.count/2..<list.count])
+    
+    return merge(left: mergeSort(list:leftList), right: mergeSort(list:rightList))
+}
+
+for _ in 1...input_data_num{
+    var input = readLine()!.components(separatedBy: "\n").map { (value: String) -> Int in
+        return Int(value)!
+    }
+    data_arr.append(input[0])
+}
+
+
+print(mergeSort(list: data_arr))
+
+
+
+
+
+
+
 
 
 
