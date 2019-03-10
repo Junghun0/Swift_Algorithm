@@ -709,3 +709,102 @@ print(String(arr_String.sorted().reversed()))*/
  print(String(readLine()!.sorted(by:>)))
  */
 
+
+//1181번 글자수 + 알파벳순 정렬
+/*let input_data_num = Int(readLine()!)!
+var data_arr = [String]()
+var test_arr = Array<String>()
+
+for _ in 1...input_data_num{
+    let input2 = readLine()!
+    data_arr.append(input2)
+}
+
+var result_datas = Array(Set(data_arr))
+
+var test = result_datas.sorted { (v1: String, v2: String) -> Bool in
+    return v1.count > v2.count
+}
+
+test.sort { (v1 : String, v2 : String) -> Bool in
+    if (v1.count == v2.count){
+        return v1 > v2
+    }else{
+        return v1.count > v2.count
+    }
+}
+
+for characters in test.reversed(){
+    print(characters)
+}*/
+
+/*while true { guard let line = readLine() else{
+            break
+    }
+    print(line)  }*/
+
+
+//let testcase = Int(readLine()!)!
+//var test_arr = Array<String>()
+//var result_data:String = ""
+//var result_arr = Array<String>()
+//var roof_arr = Array<Int>()
+//
+//
+//for _ in 0...testcase - 1{
+//    let datas = readLine()!.components(separatedBy: " ").map { (value : String) -> String in
+//        return value
+//    }
+//    test_arr.append(datas[0]+datas[1])
+//}
+//
+//for i in 0...test_arr.count - 1{
+//    let start = test_arr[i].index(after: test_arr[i].startIndex)
+//    let end = test_arr[i].index(test_arr[i].endIndex, offsetBy: -1)
+//
+//    print(test_arr[i][test_arr[i].startIndex]) //반복 숫자
+//    print(test_arr[i][start...end]) //나머지
+//
+//    result_data = String(test_arr[i][start...end])
+//    result_arr.append(result_data)
+//    roof_arr.append(Int(String(test_arr[i][test_arr[i].startIndex]))!)
+//}
+//
+//print(result_arr)
+//print(roof_arr)
+//
+//for k in 0...testcase - 1{
+//
+//    for i in 0...roof_arr[k] - 1{
+//
+//    }
+//}
+
+
+//백준 2675
+var result_data = Array<String>()
+let line = Int(readLine() ?? "") ?? 0
+
+    for _ in 0..<line{
+        let input = readLine() ?? ""
+        let inputArr = input.split { $0 == " " }
+        
+        let inputP = Int(inputArr[0]) ?? 0
+        var temp = ""
+        
+    for character in inputArr[1] {
+        for _ in 0..<inputP {
+            temp += String(character) }
+        }
+        result_data.append(temp)
+}
+
+for a in result_data{
+    print(a)
+}
+
+
+
+
+
+
