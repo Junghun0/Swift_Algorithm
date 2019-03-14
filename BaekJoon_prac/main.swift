@@ -782,7 +782,7 @@ for characters in test.reversed(){
 
 
 //백준 2675
-var result_data = Array<String>()
+/*var result_data = Array<String>()
 let line = Int(readLine() ?? "") ?? 0
 
     for _ in 0..<line{
@@ -801,7 +801,143 @@ let line = Int(readLine() ?? "") ?? 0
 
 for a in result_data{
     print(a)
+}*/
+
+
+//백준 15729번
+/*var test_case = Int(readLine()!)!
+var test_input = readLine()!.components(separatedBy: " ").map { (value: String) -> Int in
+    return Int(value)!
 }
+var count = 1
+var index_arr = [Int]()
+
+extension Array where Element: Equatable {
+    func indexes(of element: Element) -> [Int] {
+        return self.enumerated().filter({ element == $0.element }).map({ $0.offset })
+    }
+}
+index_arr = test_input.indexes(of: 1)
+
+if(index_arr.count == 3 && (index_arr[0]+index_arr[2]) / 2 == index_arr[1]){
+    print("1")
+}else if(index_arr.count == 1 && test_input[0] == 1){
+    print("1")
+}else if(index_arr.count == 2 && test_input[0]==1 && test_input[1]==1){
+    print("1")
+}else{
+    for i in test_input.indexes(of: 1)[0]...test_input.count - 1{
+        
+        for k in i...test_input.count - 1{
+            test_input[k] = 0
+            
+            if((k+2) < test_input.count){
+                if(test_input[k + 1] == 0 && test_input[k + 2] == 0){
+                    test_input[k + 1] = 1
+                    test_input[k + 2] = 1
+                }else{
+                    test_input[k + 1] = 0
+                    test_input[k + 2] = 0
+                }
+            }
+            
+            if((k+2) == test_input.count - 1 || (k+2) > test_input.count - 1){
+                if(test_input[test_input.count - 1] == 1){
+                    test_input[test_input.count - 1] = 0
+                }else{
+                    test_input[test_input.count - 1] = 1
+                }
+            }
+
+            count += 1
+            var result = test_input.indexes(of: 1)
+            if(result.count == 3 && (result[0]+result[2])/2 == result[1]){
+                print(count)
+            }
+        }
+    }
+}*/
+
+
+
+
+/*var test_case = Int(readLine()!)!
+var test_input = readLine()!.components(separatedBy: " ").map { (value: String) -> Int in
+    return Int(value)!
+}
+var count = 0
+var index_arr = [Int]()
+var bool_arr = [Bool](repeating: false, count: test_case + 2)
+
+for i in 0...test_case - 1{
+    if(test_input[i] == 1){
+        bool_arr[i] = true
+    }else{
+        bool_arr[i] = false
+    }
+}
+for i in 0...test_case - 1{
+    if(bool_arr[i]){
+        count += 1
+        bool_arr[i+1] = !bool_arr[i+1]
+        bool_arr[i+2] = !bool_arr[i+2]
+    }
+}
+print(count)*/
+
+var test_case = Int(readLine()!)!
+var stack_data = [Int]()
+var test_arr = Array<Int>()
+var index = 0
+var saved_arr = [Int]()
+var result_arr = [String]()
+
+
+for _ in 1...test_case{
+    var input_data = readLine()!.components(separatedBy: "\n").map { (value: String) -> Int in
+        return Int(value)!
+    }
+    stack_data.append(input_data[0])
+}
+
+for k in 1...test_case{
+    result_arr.append("+")
+    test_arr.append(k)
+
+    while(!test_arr.isEmpty && stack_data[index] == test_arr[test_arr.count - 1]){
+        index += 1
+        test_arr.remove(at: test_arr.count - 1)
+        result_arr.append("-")
+    }
+}
+
+if(!test_arr.isEmpty){
+    print("NO")
+}else{
+    for k in result_arr{
+        print(k)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
