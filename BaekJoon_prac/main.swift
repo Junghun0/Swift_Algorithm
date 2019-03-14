@@ -885,7 +885,10 @@ for i in 0...test_case - 1{
 }
 print(count)*/
 
-var test_case = Int(readLine()!)!
+
+
+//백준 스텍2
+/*var test_case = Int(readLine()!)!
 var stack_data = [Int]()
 var test_arr = Array<Int>()
 var index = 0
@@ -917,7 +920,46 @@ if(!test_arr.isEmpty){
     for k in result_arr{
         print(k)
     }
+}*/
+
+//괄호
+/*var test_case = Int(readLine()!)!
+var sample_arr = [String]()
+var stack_arr = [String]()
+
+for _ in 1...test_case{
+    var datas = readLine()!.components(separatedBy: "/n")
+    sample_arr.append(datas[0])
 }
+
+for k in 0..<sample_arr.count {
+    
+    for i in sample_arr[k].characters.indices{
+        if(sample_arr[k][i] == "("){
+            stack_arr.append("(")
+
+        }else{
+            if(!stack_arr.isEmpty && stack_arr[stack_arr.count - 1] == "("){
+                stack_arr.remove(at: stack_arr.count - 1)
+                
+            }else{
+                stack_arr.append(")")
+            }
+        }
+    }
+    
+    if(!stack_arr.isEmpty && sample_arr[k].last == ")"){
+        print("NO")
+        stack_arr.removeAll()
+    }else if(!stack_arr.isEmpty){
+        print("NO")
+        stack_arr.removeAll()
+    }else{
+        print("YES")
+        stack_arr.removeAll()
+    }
+}*/
+
 
 
 
