@@ -961,6 +961,151 @@ for k in 0..<sample_arr.count {
 }*/
 
 
+//백준 윷놀이
+/*var state_arr = [Int]()
+var zeroCount = 0
+var oneCount = 0
+var result = [String]()
+
+for _ in 1...3{
+    let input_state = readLine()!.components(separatedBy: " ").map { (value: String) -> Int in
+        return Int(value)!
+    }
+    for a in input_state{
+        if(a == 0){
+            zeroCount += 1
+        }else{
+            oneCount += 1
+        }
+    }
+    switch oneCount {
+    case 0 : result.append("D")
+            zeroCount = 0
+            oneCount = 0
+        break
+    case 1: result.append("C")
+        zeroCount = 0
+        oneCount = 0
+        break
+    case 2: result.append("B")
+        zeroCount = 0
+        oneCount = 0
+    case 3: result.append("A")
+        zeroCount = 0
+        oneCount = 0
+    default: result.append("E")
+    zeroCount=0
+    oneCount=0
+        break
+    }
+}
+
+for k in result{
+    print(k)
+}*/
+
+
+/*var test_case = Int(readLine()!)!
+var first_stat = [Int]()
+var second_stat = [Int]()
+var one_checker = 0
+var second_checker = 0
+var result = [Int]()
+
+for _ in 1...test_case{
+    
+    var stat = readLine()!.components(separatedBy: " ").map { (value: String) -> Int in
+        return Int(value)!
+    }
+    
+    first_stat.append(stat[0])
+    second_stat.append(stat[1])
+}
+
+var sorted_first = first_stat.sorted()
+var sorted_second = second_stat.sorted()
+
+for i in 0...sorted_first.count - 1{
+    
+    let check_one = sorted_first.index(of: first_stat[i])!
+    let check_sec = sorted_second.index(of: second_stat[i])!
+    
+    one_checker = (first_stat.count - 1) - check_one
+    second_checker = (second_stat.count - 1) - check_sec
+    
+    if(one_checker == second_checker && one_checker == first_stat.count - 1 && second_checker == second_stat.count - 1){
+        result.append(second_stat.count)
+        one_checker = 0
+        second_checker = 0
+        continue
+    }else if(one_checker == second_checker && one_checker < first_stat.count - 1 && second_checker < second_stat.count - 1 && one_checker != 0 && second_checker != 0){
+        result.append(i+1)
+        one_checker = 0
+        second_checker = 0
+        continue
+    }else if(one_checker == 0 && second_checker == 0){
+        result.append(1)
+        one_checker = 0
+        second_checker = 0
+        continue
+    }
+    else if(one_checker > second_checker){
+            result.append(second_checker+1)
+            one_checker = 0
+            second_checker = 0
+            continue
+    }else{
+        result.append(one_checker+1)
+        one_checker = 0
+        second_checker = 0
+        continue
+    }
+    
+}
+
+var re = ""
+for k in result{
+    re += String(k)+" "
+}
+var result2 = re.trimmingCharacters(in: CharacterSet.whitespaces)
+print(result2)*/
+
+
+
+//프로그래머스 가장 큰수
+//클로져 closure 개쩌는거!!@#@#@#@#
+/*func solution(_ numbers:[Int]) -> String {
+    let sorted : [Int] = numbers.sorted { Int("\($0)\($1)")! > Int("\($1)\($0)")!}
+    if sorted[0] == 0{
+        return "0"
+    }
+    let result = sorted.reduce(""){$0 + "\($1)"}
+    
+    return result
+}
+
+solution([6,10,2])
+solution([3,30,34,5,9])*/
+
+//프로그래머스 H-index
+
+func solution(_ citations:[Int]) -> Int {
+    let sorted = citations.sorted(by: >)
+    for i in 0..<sorted.count{
+        if i >= sorted[i]{
+            return i
+        }
+    }
+    return sorted.count
+}
+
+print(solution([3,0,6,1,5]))
+
+
+
+
+
+
 
 
 
