@@ -1089,7 +1089,7 @@ solution([3,30,34,5,9])*/
 
 //프로그래머스 H-index
 
-func solution(_ citations:[Int]) -> Int {
+/*func solution(_ citations:[Int]) -> Int {
     let sorted = citations.sorted(by: >)
     for i in 0..<sorted.count{
         if i >= sorted[i]{
@@ -1099,35 +1099,77 @@ func solution(_ citations:[Int]) -> Int {
     return sorted.count
 }
 
-print(solution([3,0,6,1,5]))
+print(solution([3,0,6,1,5]))*/
 
 
 
+func solution(_ answers:[Int]) -> [Int] {
+    var correct_count = 0
+    var extra_correct_count = 0
+    var result_arr = [Int]()
+    
+    let one_arr = [1,2,3,4,5]
+    let two_arr = [2,1,2,3,2,4,2,5]
+    let three_arr = [3,3,1,1,2,2,4,4,5,5]
+    
+    var supo_arr = Array<[Int]>()
+    
+    supo_arr.append(one_arr)
+    supo_arr.append(two_arr)
+    supo_arr.append(three_arr)
+    
+    for k in 0...2 {
+        var check_data = supo_arr[k]
+        if(answers.count > check_data.count){
+            let extra_roof = answers.count % check_data.count
+            let oneroof_correct = answers.count / check_data.count
+            for k in 0...check_data.count - 1{
+                
+                if(check_data[k] == answers[k]){
+                    correct_count += 1//한루프에서 맞은개수
+                }
+            }
+            
+            if(extra_roof != 0){
+                for i in 0...extra_roof-1{
+                    if(check_data[i] == answers[i]){
+                        extra_correct_count += 1
+                    }
+                }
+                result_arr.append(correct_count * oneroof_correct + extra_correct_count)
+                correct_count = 0
+                extra_correct_count = 0
+            }else{
+                print("here")
+            }
+            
+        }else{
+            for i in 0...answers.count - 1{
+                
+                if(check_data[i] == answers[i]){
+                    correct_count += 1
+                }
+            }
+            result_arr.append(correct_count)
+            correct_count = 0
+        }
+        print(result_arr)
+    }
+    
+    let tmp = result_arr[0]
+    var count = 1
+    for k in 1...result_arr.count - 1{
+        if(result_arr[k] == tmp){
+            count += 1
+        }
+    }
+    if(count == result_arr.count){
+        return [1,2,3]
+    }else{
+        let x = result_arr.max()!
+        let a = result_arr.index(of: x)!
+        return [a+1]
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(solution([1,2,3,4,5,1,2,3,4,5,5,1,2,2,3,2]))
