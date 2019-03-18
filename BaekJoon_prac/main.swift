@@ -1103,7 +1103,7 @@ print(solution([3,0,6,1,5]))*/
 
 
 
-func solution(_ answers:[Int]) -> [Int] {
+/*func solution(_ answers:[Int]) -> [Int] {
     var correct_count = 0
     var extra_correct_count = 0
     var result_arr = [Int]()
@@ -1172,4 +1172,49 @@ func solution(_ answers:[Int]) -> [Int] {
     }
 }
 
-print(solution([1,2,3,4,5,1,2,3,4,5,5,1,2,2,3,2]))
+print(solution([1,2,3,4,5,1,2,3,4,5,5,1,2,2,3,2]))*/
+
+//프로그래머스 해시.위장
+func solution(_ clothes:[[String]]) -> Int {
+    var dicData : [String : String] = [:]
+    var clothes_menu = [String]()
+    var clothes_num = [Int]()
+    
+    
+    for k in clothes{
+        dicData.updateValue(k[1], forKey: k[0])
+    }
+    
+    
+    for i in dicData{
+        
+        if(!clothes_menu.contains(i.value)){
+            clothes_menu.append(i.value)
+        }
+    }
+    
+    let result2 = clothes_menu.count
+    
+    
+    for k in 0...clothes_menu.count - 1{
+        let k = dicData.filter { $0.value == clothes_menu[k]}
+        clothes_num.append(k.count)
+    }
+    
+    var result = 1
+    for j in clothes_num{
+        result *= (j+1)
+    }
+    
+    
+    if(result2 == 1){
+        return result2 * result - 1
+    }else{
+        return result - 1
+    }
+}
+
+solution([["yellow_hat", "headgear"], ["blue_sunglasses","eyewear"], [
+    "green_turban", "headgear"],["efefefef","face"]])
+
+//solution([["crow_mask", "face"], ["blue_sunglasses", "face"], ["smoky_makeup", "face"]])
